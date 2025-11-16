@@ -1,23 +1,24 @@
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 const Tile = ({ title, href, image }) => (
   <Link to={href} className="group block">
-    <div className="rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden">
-      <div className="aspect-[3/2] bg-gray-50">
-        <img src={image} alt={title} className="w-full h-full object-contain" />
+    <motion.div whileHover={{ y: -6 }} className="rounded-3xl bg-black border border-white/10 shadow-[0_10px_40px_rgba(255,255,255,0.06)] overflow-hidden">
+      <div className="aspect-[3/2] bg-black">
+        <img src={image} alt={title} className="w-full h-full object-contain grayscale" />
       </div>
       <div className="p-5">
-        <h3 className="text-lg font-medium tracking-tight text-gray-900 group-hover:opacity-80">
+        <h3 className="text-lg font-medium tracking-tight text-white group-hover:opacity-80">
           {title}
         </h3>
       </div>
-    </div>
+    </motion.div>
   </Link>
 )
 
 export default function CategoryTiles() {
   return (
-    <section className="bg-white">
+    <section className="bg-black">
       <div className="max-w-6xl mx-auto px-4 py-12">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           <Tile

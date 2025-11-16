@@ -7,18 +7,18 @@ export default function Navbar() {
 
   const linkClass = ({ isActive }) =>
     `px-3 py-2 text-sm tracking-wide transition-colors ${
-      isActive ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'
+      isActive ? 'text-white' : 'text-white/60 hover:text-white'
     }`
 
   return (
-    <header className="sticky top-0 z-40 backdrop-blur bg-white/70 border-b border-gray-100">
+    <header className="sticky top-0 z-40 backdrop-blur bg-black/70 border-b border-white/10">
       <div className="max-w-6xl mx-auto px-4">
         <div className="h-16 flex items-center justify-between">
           <div className="flex items-center gap-8">
             <button className="md:hidden p-2" onClick={() => setOpen(!open)}>
-              <Menu className="w-5 h-5 text-gray-700" />
+              <Menu className="w-5 h-5 text-white" />
             </button>
-            <Link to="/" className="font-semibold tracking-tight text-gray-900 text-lg">
+            <Link to="/" className="font-semibold tracking-tight text-white text-lg">
               YOTS TECH-SHOP
             </Link>
           </div>
@@ -32,15 +32,14 @@ export default function Navbar() {
 
           <div className="flex items-center gap-4">
             <Link to="/cart" className="relative group">
-              <ShoppingBag className="w-5 h-5 text-gray-700" />
+              <ShoppingBag className="w-5 h-5 text-white" />
               <span className="sr-only">Cart</span>
-              <span className="absolute -right-2 -top-2 text-[10px] bg-gray-900 text-white rounded-full px-1.5 py-0.5 opacity-0 group-hover:opacity-100 transition-opacity">Cart</span>
             </Link>
           </div>
         </div>
       </div>
       {open && (
-        <div className="md:hidden border-t border-gray-100">
+        <div className="md:hidden border-t border-white/10">
           <nav className="max-w-6xl mx-auto px-4 py-2 flex flex-col">
             <NavLink to="/shop/new" className={linkClass} onClick={() => setOpen(false)}>Shop New</NavLink>
             <NavLink to="/shop/preowned" className={linkClass} onClick={() => setOpen(false)}>Pre‑Owned</NavLink>
